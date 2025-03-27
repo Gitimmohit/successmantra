@@ -1,0 +1,346 @@
+/* Courses.css */
+.courses-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* margin: 0 auto; */
+    /* padding: 20px; */
+  }
+  
+  /* Header Styles */
+  .courses-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .courses-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .courses-header p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-tabs button {
+    padding: 8px 16px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+  }
+  
+  .filter-tabs button.active {
+    background: #3498db;
+    color: white;
+  }
+  
+  .course-count {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Courses Grid */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .courses-grid.loading {
+    opacity: 0.7;
+  }
+  
+  .course-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Card Sections */
+  .card-top {
+    padding: 10px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .card-top h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+  
+  .subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .feature-badge {
+    color: #444;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .bullet {
+    color: #3498db;
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  
+  .card-middle {
+    padding: 20px;
+  }
+  
+  .full-title {
+    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .timing {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  
+  .timing strong {
+    margin-right: 5px;
+    color: #333;
+  }
+  
+  .pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .current-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: #95a5a6;
+    font-size: 0.9rem;
+  }
+  
+  .discount {
+    background: #e74c3c;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .mode-badge {
+    background: #2ecc71;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .card-bottom {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .card-bottom button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .explore-btns {
+    background: #f5f5f5;
+    color: #3498db;
+  }
+  
+  .explore-btns:hover {
+    background: #e0e0e0;
+  }
+  
+  .buy-btn {
+    background: #3498db;
+    color: white;
+  }
+  
+  .buy-btn:hover {
+    background: #2980b9;
+  }
+  
+  /* Load More Button */
+  .load-more-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .load-more-btn {
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .load-more-btn:hover:not(:disabled) {
+    background: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .load-more-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Loader Animation */
+  .loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .courses-header h1 {
+      font-size: 2rem;
+    }
+    
+    .filter-tabs {
+      gap: 8px;
+    }
+    
+    .filter-tabs button {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+    
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .course-count {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .courses-header {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+  }
+  
+  .courses-header img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+  
+  .filter-tabs {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filter-tabs button {
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-tabs button.active {
+    background: #3b82f6;
+    font-weight: bold;
+  }
+  
+  .filter-tabs button:hover {
+    background: rgba(255,255,255,0.4);
+  }

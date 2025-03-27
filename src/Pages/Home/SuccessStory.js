@@ -14,23 +14,25 @@ const SuccessStory = () => {
         name: "Tathagat Awatar",
         rank: "AIR 1",
         score: "720/720",
-        testimonial: "PW's structured approach transformed my preparation. The daily practice problems and regular mock tests mirrored the actual NEET difficulty perfectly.",
+        testimonial:
+          "Success's Mantra structured approach transformed my preparation. The daily practice problems and regular mock tests mirrored the actual SSC GD difficulty perfectly.",
         photo: "TA",
         year: 2024,
-        batch: "Yakeen NEET",
-        subjects: ["Physics", "Chemistry", "Biology"]
+        batch: "Yakeen",
+        subjects: ["Physics", "Chemistry", "Biology"],
       },
       {
         id: 2,
         name: "Priya Sharma",
         rank: "AIR 23",
         score: "710/720",
-        testimonial: "The doubt-solving sessions were game-changing. I improved from 550 to 710 in just 6 months with PW's guidance.",
+        testimonial:
+          "The doubt-solving sessions were game-changing. I improved from 550 to 710 in just 6 months with Success Mantra's guidance.",
         photo: "PS",
         year: 2024,
-        batch: "Arjuna NEET",
-        subjects: ["Biology", "Chemistry"]
-      }
+        batch: "Arjuna",
+        subjects: ["Biology", "Chemistry"],
+      },
     ],
     jee: [
       {
@@ -38,13 +40,14 @@ const SuccessStory = () => {
         name: "Rahul Verma",
         rank: "AIR 12",
         score: "98.9%",
-        testimonial: "PW's JEE test series was tougher than actual JEE, which made the real exam feel easy. The concept videos saved me hundreds of hours.",
+        testimonial:
+          "Success Mantra's JEE test series was tougher than actual JEE, which made the real exam feel easy. The concept videos saved me hundreds of hours.",
         photo: "RV",
         year: 2023,
         batch: "JEE Champion",
-        subjects: ["Maths", "Physics"]
-      }
-    ]
+        subjects: ["Maths", "Physics"],
+      },
+    ],
   };
 
   const toggleExpand = (id) => {
@@ -57,7 +60,7 @@ const SuccessStory = () => {
       <div className="showcase-header">
         <div className="sparkle"></div>
         <h1>
-          <span className="highlight">PW</span> Success Stories
+          <span className="highlight">Success Mantra</span> Success Stories
           <FaMedal className="medal-icon" />
         </h1>
         <p className="subtitle">Where Dreams Become Ranks</p>
@@ -65,26 +68,28 @@ const SuccessStory = () => {
 
       {/* Interactive Tab System */}
       <div className="story-tabs">
-        <button 
+        <button
           className={`tab-btn ${activeTab === "neet" ? "active" : ""}`}
           onClick={() => setActiveTab("neet")}
         >
-          NEET Toppers <RiMedalFill style={{ color: "#4CAF50" }} />
+          SSC GD Toppers <RiMedalFill style={{ color: "#4CAF50" }} />
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === "jee" ? "active" : ""}`}
           onClick={() => setActiveTab("jee")}
         >
-          JEE Achievers <RiMedalFill style={{ color: "#2196F3" }} />
+          JPSC Achievers <RiMedalFill style={{ color: "#2196F3" }} />
         </button>
       </div>
 
       {/* 3D Card Grid */}
       <div className="story-grid">
         {successStories[activeTab].map((student) => (
-          <div 
+          <div
             key={student.id}
-            className={`story-card ${expandedCard === student.id ? "expanded" : ""}`}
+            className={`story-card ${
+              expandedCard === student.id ? "expanded" : ""
+            }`}
             onClick={() => toggleExpand(student.id)}
           >
             <div className="card-inner">
@@ -136,11 +141,9 @@ const SuccessStory = () => {
           <div className="stat-value">10K+</div>
           <div className="stat-label">Selections</div>
         </div>
-        
       </div>
 
       {/* Floating CTA */}
-     
     </div>
   );
 };

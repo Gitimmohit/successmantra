@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './Navbar.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import "./Navbar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import logo from "../img/logo.jpeg";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 950);
 
@@ -18,24 +22,25 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">PW</div>
-      
+      <div
+        className="navbar-logo"
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate("/")}
+      >
+        <img src={logo} style={{ height: "60px", width: "60px" }} />
+      </div>
+
       {/* Desktop Navigation - shows when not in mobile view */}
       {!isMobileView && (
         <div className="navbar-links">
-          <a href="/">All Courses</a>
-          <a href="/">Vidyapeeth</a>
-          <a href="/">Upskilling</a>
-          <a href="/">PW Store (Books)</a>
-          <a href="/">REAL Test</a>
-          <a href="/">CuriousJr</a>
-          <a href="/">Power Batch</a>
+          <a href="/course">All Courses</a>
+          <a href="/galary">Gallery</a>
           <button className="login-btn">Login/Register</button>
         </div>
       )}
@@ -43,14 +48,9 @@ const Navbar = () => {
       {/* Mobile Menu Button - shows only in mobile view */}
       {isMobileView && (
         <>
-          <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
-            <a href="/">All Courses</a>
-            <a href="/">Vidyapeeth</a>
-            <a href="/">Upskilling</a>
-            <a href="/">PW Store (Books)</a>
-            <a href="/">REAL Test</a>
-            <a href="/">CuriousJr</a>
-            <a href="/">Power Batch</a>
+          <div className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
+            <a href="/course">All Courses</a>
+            <a href="/galary">Gallery</a>
             <button className="login-btn">Login/Register</button>
           </div>
           <div className="mobile-menu-icon" onClick={toggleMobileMenu}>

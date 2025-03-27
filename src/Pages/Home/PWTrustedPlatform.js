@@ -42,13 +42,13 @@ const PWTrustedPlatform = () => {
         {/* Main Heading Section with gradient background */}
         <div className="main-heading-section">
           <h1 className="main-heading">
-            <span className="gradient-text">Bharat's Trusted & Affordable</span>
+            <span className="gradient-text">Best & Affordable</span>
             <br />
             <span className="highlight-text">Educational Platform</span>
           </h1>
           <p className="sub-heading">
             Unlock your potential by signing up with{" "}
-            <span className="brand-name">Physics Wallah</span> - The most
+            <span className="brand-name">Success Mantra Classes</span> - The most
             affordable learning solution
           </p>
           <div className="sparkle-icon">✨</div>
@@ -124,13 +124,13 @@ const PWTrustedPlatform = () => {
         {/* Alakh Sir Section with testimonial style */}
         <div className="alakh-section">
           <div className="quote-icon">❝</div>
-          <h3 className="alakh-question">Alakh Sir, What is PW?</h3>
+          <h3 className="alakh-question">Rishabh Sir, What is Success Mantra?</h3>
           <p className="alakh-answer">
-            PW is where students learn with{" "}
+          Success Mantra is where students learn with{" "}
             <span className="highlight-word">love</span> and can grow with{" "}
             <span className="highlight-word">guidance</span>
           </p>
-          <div className="signature">- Alakh Pandey</div>
+          <div className="signature">- Rishabh Sir</div>
         </div>
       </div>
     </section>

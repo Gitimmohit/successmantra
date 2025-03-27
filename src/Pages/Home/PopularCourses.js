@@ -44,7 +44,7 @@ const PopularCourses = () => {
       description: "Complete CUET exam preparation package",
       price: "$129",
       discount: "150% OFF",
-      author: "By PW Faculty",
+      author: "By Success Mantra Faculty",
       category: "Entrance Exam",
     },
     {

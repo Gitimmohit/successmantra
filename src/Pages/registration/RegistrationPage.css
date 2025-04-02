@@ -1,352 +1,604 @@
-/* Registration Page Styles */
-.registration-page {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    line-height: 1.6;
+/* Base Styles */
+.reg-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.reg-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../img/banner3.jpg') center/cover;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+}
+
+.reg-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reg-hero-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reg-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.reg-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.reg-hero-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.reg-hero-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.reg-active-tab {
+  background: #4caf50;
+}
+
+.reg-active-tab:hover {
+  background: #3d8b40;
+}
+
+/* Main Content Layout */
+.reg-main-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .reg-main-content {
+    grid-template-columns: 2fr 1fr;
   }
-  
-  /* Hero Section */
-  .registration-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('../../img//banner3.jpg') center/cover;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+}
+
+/* Registration Form */
+.reg-form-section {
+  padding: 0 1rem;
+}
+
+@media (max-width: 991px) {
+  .reg-form-section:not(.reg-active-section) {
+    display: none;
   }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reg-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reg-form-container h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.reg-form-alert {
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.reg-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.reg-error {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.reg-form-alert svg {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.reg-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.reg-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reg-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .reg-form-row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
-  .hero-content p {
-    font-size: 1.3rem;
-    opacity: 0.9;
+}
+
+label {
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.reg-input,
+.reg-textarea,
+.reg-select {
+  width: 90%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.reg-input:focus,
+.reg-textarea:focus,
+.reg-select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.reg-input-error {
+  border-color: #c62828;
+}
+
+.reg-input-error:focus {
+  border-color: #c62828;
+  box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.2);
+}
+
+.reg-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.reg-error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.reg-payment-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .reg-payment-options {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-  
-  /* Course Selection */
-  .course-selection {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+}
+
+.reg-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.reg-payment-option:hover {
+  background: #f5f5f5;
+}
+
+.reg-radio {
+  width: auto;
+  margin-right: 0.3rem;
+}
+
+.reg-selected-course-info {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.reg-selected-course-info h4 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.reg-change-course-btn {
+  background: none;
+  border: none;
+  color: #4caf50;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+}
+
+.reg-form-footer {
+  margin-top: 1.5rem;
+}
+
+.reg-submit-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.reg-submit-btn:hover {
+  background: #3d8b40;
+  transform: translateY(-2px);
+}
+
+.reg-submit-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reg-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .course-selection h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 2rem;
+}
+
+.reg-disclaimer {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Course Selection */
+.reg-course-selection {
+  padding: 0 1rem;
+}
+
+@media (max-width: 991px) {
+  .reg-course-selection:not(.reg-active-section) {
+    display: none;
   }
-  
-  .course-grid1 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .course-card1 {
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .course-card1:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .course-card1.selected {
-    border-color: #4CAF50;
-    background: #f1f8e9;
-  }
-  
-  .course-card1 h3 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-  }
-  
-  .course-details1 {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    color: #666;
-  }
-  
-  .course-details1 p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .course-description1 {
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  .selected-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #4CAF50;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  
-  .error-message {
-    color: #c62828;
-    text-align: center;
-    margin-top: 0.5rem;
-  }
-  
-  /* Registration Form */
-  .registration-form-section {
-    background: #f5f5f5;
-    padding: 4rem 0;
-  }
-  
-  .form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  }
-  
-  .form-container h2 {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .form-alert {
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-  }
-  
-  .form-alert.success {
-    background: #e8f5e9;
-    color: #2e7d32;
-  }
-  
-  .form-alert.error {
-    background: #ffebee;
-    color: #c62828;
-  }
-  
-  .form-alert svg {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #444;
-  }
-  
-  input, textarea, select {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    transition: border 0.3s ease;
-  }
-  
-  input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: #4CAF50;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  .error {
-    color: #c62828;
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    display: block;
-  }
-  
-  .payment-options {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .payment-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .payment-option input {
-    width: auto;
-    margin-right: 0.3rem;
-  }
-  
-  .form-footer {
-    margin-top: 2rem;
-  }
-  
-  .submit-btn {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-  }
-  
-  .submit-btn:hover {
-    background: #3d8b40;
-    transform: translateY(-2px);
-  }
-  
-  .submit-btn:disabled {
-    background: #a5d6a7;
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  .disclaimer {
-    font-size: 0.8rem;
-    color: #666;
-    margin-top: 1rem;
-    text-align: center;
-  }
-  
-  /* Benefits Section */
-  .benefits-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .benefits-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 3rem;
-  }
-  
-  .benefits-grid {
-    display: grid;
+}
+
+.reg-course-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reg-section-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.reg-course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.reg-course-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.reg-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reg-selected {
+  border-color: #4caf50;
+  background: #f1f8e9;
+}
+
+.reg-course-card h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.reg-course-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.reg-course-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reg-course-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.reg-selected-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #4caf50;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.reg-view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem auto 0;
+  padding: 0.8rem 1.5rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reg-view-all-btn:hover {
+  background: #3d8b40;
+  transform: translateY(-2px);
+}
+
+.reg-error-message {
+  color: #c62828;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Benefits Section */
+.reg-benefits-section {
+  background: #f9f9f9;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
+}
+
+.reg-benefits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reg-benefits-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.reg-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .reg-benefits-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  }
+}
+
+.reg-benefit-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.reg-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reg-benefit-icon-container {
+  width: 60px;
+  height: 60px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.reg-benefit-icon {
+  font-size: 1.5rem;
+  color: #4caf50;
+}
+
+.reg-benefit-card h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.reg-benefit-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Contact Info */
+.reg-contact-info {
+  background: #2c3e50;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.reg-contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .reg-contact-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.reg-contact-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reg-contact-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4caf50;
+}
+
+.reg-contact-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.reg-contact-card p {
+  margin: 0.3rem 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .reg-hero {
+    height: 70vh;
   }
   
-  .benefit-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    transition: all 0.3s ease;
+  .reg-hero-content h1 {
+    font-size: 1.8rem;
   }
   
-  .benefit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  .reg-hero-content p {
+    font-size: 1rem;
   }
   
-  .benefit-icon {
-    font-size: 2.5rem;
-    color: #4CAF50;
-    margin-bottom: 1.5rem;
+  .reg-form-container,
+  .reg-course-container {
+    padding: 1.5rem;
   }
   
-  .benefit-card h3 {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+  .reg-section-title,
+  .reg-form-container h2,
+  .reg-benefits-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-hero {
+    height: 80vh;
   }
   
-  .benefit-card p {
-    color: #666;
-    font-size: 0.95rem;
+  .reg-hero-content h1 {
+    font-size: 1.5rem;
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-      font-size: 1.1rem;
-    }
-    
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-    
-    .payment-options {
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    
-    .form-container {
-      padding: 1.5rem;
-    }
+  .reg-hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
   }
   
-  @media (max-width: 576px) {
-    .registration-hero {
-      height: 40vh;
-    }
-    
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-    
-    .course-selection h2,
-    .form-container h2,
-    .benefits-section h2 {
-      font-size: 2rem;
-    }
-    
-    .benefits-grid {
-      grid-template-columns: 1fr;
-    }
+  .reg-hero-btn {
+    width: 100%;
   }
+  
+  .reg-course-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reg-benefit-card {
+    padding: 1.5rem;
+  }
+}

@@ -91,7 +91,7 @@ const Courses = () => {
         className="courses-header"
         style={{
           position: "relative",
-          height: "50vh",
+          height: "90vh",
           width: "100%",
           overflow: "hidden", // Add this to prevent image overflow
         }}

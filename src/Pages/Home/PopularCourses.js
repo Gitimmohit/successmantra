@@ -159,11 +159,12 @@ const PopularCourses = () => {
 
   return (
     <section className="popular-courses">
-      <div className="container">
+      <div className="container-p">
         {/* Popular Courses Heading */}
-        <h2 className={`section-title ${animated ? "animate-fade-in" : ""}`}>
+        <span className={`section-title ${animated ? "animate-fade-in" : ""}`}>
           Popular Courses
-        </h2>
+        </span>
+        <hr/>
 
         {/* Live Stats Section - Positioned below the heading */}
 

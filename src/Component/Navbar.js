@@ -115,11 +115,16 @@ const Navbar = () => {
                 Contact
               </a>
               <button
-                className={"login-btn"}
-                onClick={() => navigate("/register")}
+                className={
+                  activeTab === "/register" ? "login-btn" : "login-btn"
+                }
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = "/register"; // Or use your router's navigation method
+                }}
               >
                 Register Now
-              </button>{" "}
+              </button>
             </div>
           </div>
           <div className="mobile-menu-icon" onClick={toggleMobileMenu}>

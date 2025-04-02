@@ -5,9 +5,11 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import PopularCourses from "./PopularCourses";
 import PWTrustedPlatform from "./PWTrustedPlatform";
 import SuccessStory from "./SuccessStory";
-import banner1 from "../../img/banner1.jpg"
-import banner2 from "../../img/banner2.jpg"
-import banner3 from "../../img/banner3.jpg"
+import banner1 from "../../img/banner1.jpg";
+import banner2 from "../../img/banner2.jpg";
+import banner3 from "../../img/banner3.jpg";
+import WhyChooseUs from "./WhyChooseUs";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
   const carouselItems = [
@@ -16,21 +18,21 @@ const Home = () => {
       title: "GATE 2024 Preparation",
       subtitle: "Comprehensive Courses for All Streams",
       bgColor: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
-      img:banner1,
+      img: banner1,
     },
     {
       id: 2,
       title: "New Batches Starting Soon",
       subtitle: "Enroll Now for Early Bird Discount",
       bgColor: "linear-gradient(135deg, #10b981, #059669)",
-      img:banner2,
+      img: banner2,
     },
     {
       id: 3,
       title: "Learn from Top Educators",
       subtitle: "Experience the PW Difference",
       bgColor: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
-      img:banner3,
+      img: banner3,
     },
   ];
 
@@ -74,7 +76,7 @@ const Home = () => {
             <div
               key={item.id}
               className="carousel-slide"
-              style={{ backgroundImage: `url(${item.img})`}} 
+              style={{ backgroundImage: `url(${item.img})` }}
             >
               <div className="carousel-content">
                 <h2 className="carousel-title">{item.title}</h2>
@@ -118,6 +120,14 @@ const Home = () => {
       </div>
       <div>
         <SuccessStory />
+      </div>
+
+      <div>
+        <WhyChooseUs />
+      </div>
+
+      <div>
+        <ContactUs />
       </div>
     </div>
   );

@@ -1,13 +1,10 @@
 /* Base Styles */
 .popular-courses {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     background-color: #f8fafc;
   }
   
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+
   
   /* Live Stats Section */
   .live-stats-section {
@@ -71,6 +68,7 @@
     margin-bottom: 3rem;
     position: relative;
     opacity: 0;
+    font-weight: bold;
   }
   
   .courses-grid {
@@ -252,7 +250,7 @@
   /* Responsive Styles */
   @media (max-width: 768px) {
     .popular-courses {
-      padding: 3rem 1.5rem;
+      padding: 1.5rem;
     }
     
     .section-title {
@@ -271,7 +269,7 @@
   
   @media (max-width: 480px) {
     .popular-courses {
-      padding: 2rem 1rem;
+      padding: 1rem;
     }
     
     .section-title {

@@ -1,58 +1,64 @@
-/* Base Styles */
+/* Base Styles with Mobile-First Approach */
 .success-showcase {
   font-family: 'Poppins', sans-serif;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+  width: 100%;
+  padding: 1.5rem 5%;
+  box-sizing: border-box;
 }
 
-/* Header Styles */
 .showcase-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .showcase-header h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: #2c3e50;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
 }
 
 .highlight {
   color: #4CAF50;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .medal-icon {
   color: #FFD700;
-  font-size: 2rem;
+  font-size: 1.5rem;
   animation: float 3s ease-in-out infinite;
 }
 
 .subtitle {
   color: #7f8c8d;
-  font-size: 1.2rem;
-  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
 }
 
-/* Cards Grid */
+/* Cards Grid - Mobile First */
 .story-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Card Styles - Fixed Flip Animation */
+/* Card Styles */
 .story-card {
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  height: 380px;
+  height: 320px;
   position: relative;
   perspective: 1000px;
+  transition: transform 0.3s ease;
 }
 
 .card-inner {
@@ -74,12 +80,12 @@
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  padding: 2rem;
+  padding: 1.2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .card-front {
@@ -92,24 +98,25 @@
   color: white;
   transform: rotateY(180deg);
   justify-content: flex-start;
+  gap: 0.8rem;
 }
 
-/* Card Content Styles */
+/* Card Content */
 .student-badge {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background: #4CAF50;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto;
 }
@@ -117,116 +124,158 @@
 .rank-bubble {
   position: absolute;
   bottom: -5px;
-  right: 10px;
+  right: -5px;
   background: #FFD700;
   color: #8B7500;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.9rem;
+  gap: 0.2rem;
+  font-size: 0.75rem;
 }
 
 .star-icon {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 
 .card-front h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #2c3e50;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
+  text-align: center;
 }
 
 .score {
   color: #4CAF50;
   font-weight: 700;
-  font-size: 1.1rem;
-  margin: 0.3rem 0;
+  font-size: 1rem;
+  margin: 0.2rem 0;
 }
 
 .batch-tag {
   background: #e8f5e9;
   color: #4CAF50;
-  padding: 0.4rem 1.2rem;
-  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
   font-weight: 600;
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  margin: 0.3rem 0;
 }
 
 .quote-icon {
-  color:black;
-  font-size: 1.8rem;
-  margin-top: 0.5rem;
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
 }
 
 /* Back Card Content */
 .card-back h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .testimonial {
   font-style: italic;
-  line-height: 1.6;
-  margin: 1rem 0;
-  padding: 0 1rem;
+  line-height: 1.4;
+  margin: 0.3rem 0;
+  padding: 0 0.5rem;
   text-align: center;
   position: relative;
+  font-size: 0.85rem;
 }
 
 .testimonial .quote-icon {
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .subject-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
   justify-content: center;
-  margin: 1rem 0;
-  padding: 0 1rem;
+  margin: 0.5rem 0;
+  padding: 0 0.5rem;
 }
 
 .subject-tags span {
   background: rgba(255, 255, 255, 0.2);
-  padding: 0.4rem 0.9rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
 }
 
 .year-badge {
   background: white;
   color: #4CAF50;
-  padding: 0.4rem 1.2rem;
-  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
   font-weight: 700;
   margin-top: auto;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
 }
 
 /* Animations */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-5px); }
   100% { transform: translateY(0px); }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet and Larger Mobile Devices */
+@media (min-width: 480px) {
+  .story-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .story-card {
-    height: 350px;
+    height: 340px;
   }
   
   .avatar {
     width: 80px;
     height: 80px;
-    font-size: 1.5rem;
+  }
+  
+  .card-front h3,
+  .card-back h3 {
+    font-size: 1.15rem;
+  }
+  
+  .testimonial {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Laptops and Tablets */
+@media (min-width: 768px) {
+  .success-showcase {
+    padding: 2rem 5%;
+  }
+  
+  .showcase-header h1 {
+    font-size: 2rem;
+  }
+  
+  .medal-icon {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1.05rem;
+  }
+  
+  .story-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .story-card {
+    height: 360px;
   }
   
   .card-front,
@@ -235,22 +284,28 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Large Screens */
+@media (min-width: 1024px) {
+  .showcase-header h1 {
+    font-size: 2.3rem;
+  }
+  
   .story-card {
-    height: 320px;
+    height: 380px;
   }
   
   .avatar {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
+    font-size: 1.8rem;
   }
   
   .card-front h3,
   .card-back h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .testimonial {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }

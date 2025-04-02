@@ -33,6 +33,17 @@ const SuccessStory = () => {
       year: '2021',
       testimonial: 'The structured approach and doubt-clearing sessions made all the difference in my preparation journey.',
     },
+    {
+      id: 3,
+      name: 'Priya Patel',
+      photo: 'PP',
+      rank: 3,
+      score: '95%',
+      batch: 'SSC CGL 2021',
+      subjects: ['Quant', 'Reasoning', 'English'],
+      year: '2021',
+      testimonial: 'The structured approach and doubt-clearing sessions made all the difference in my preparation journey.',
+    },
     // Add more stories as needed
   ];
 

@@ -3,24 +3,47 @@ import "./PWTrustedPlatform.css";
 
 const PWTrustedPlatform = () => {
   const liveTestimonials = [
-    {
-      id: 1,
-      text: "Daily LIVE classes helped me score 650+ in NEET!",
-      name: "Rahul Sharma",
-      photo: "👨‍🎓",
-    },
-    {
-      id: 2,
-      text: "24/7 doubt solving is the best feature of PW",
-      name: "Priya Patel",
-      photo: "👩‍🎓",
-    },
-    {
-      id: 3,
-      text: "The interactive LIVE classes are amazing!",
-      name: "Amit Singh",
-      photo: "👨‍💻",
-    },
+      {
+        id: 1,
+        text: "Success Mantra's banking masterclass helped me crack SBI PO .",
+        name: "Rahul Verma",
+        photo: "👨‍💼",
+        exam: "SBI PO 2023",
+        achievement: "All India Rank 24"
+      },
+      {
+        id: 2,
+        text: "From doubt to selection - Success Mantra's SSC GD course made it possible!",
+        name: "Priya Yadav",
+        photo: "👮‍♀️",
+        exam: "SSC GD 2024",
+        achievement: "Selected in first attempt"
+      },
+      {
+        id: 3,
+        text: "The daily current affairs sessions at Success Mantra were key for my RBI Grade B success",
+        name: "Amit Deshmukh",
+        photo: "👨‍⚖️",
+        exam: "RBI Grade B 2023",
+        achievement: "Phase II Score: 78/100"
+      },
+      {
+        id: 4,
+        text: "Quant shortcuts from Success Mantra helped me secore 9th rank in SBI PO",
+        name: "Neha Gupta",
+        photo: "👩‍💻",
+        exam: "IBPS Clerk 2024",
+        achievement: "Perfect score in Quantitative Aptitude"
+      },
+      {
+        id: 5,
+        text: "Success Mantra's interview guidance got me through the toughest UPSC interview panel!",
+        name: "Ankit Joshi",
+        photo: "👨‍🎓",
+        exam: "UPSC CSE 2023",
+        achievement: "Final Rank 112"
+      }
+    
   ];
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);

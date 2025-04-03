@@ -95,7 +95,7 @@
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
   }
   
-  .course-tag {
+  .course-tag1 {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -107,15 +107,15 @@
     transform: scale(0);
   }
   
-  .course-tag.free {
+  .course-tag1 {
     background: #10b981;
   }
   
-  .course-tag.hot {
+  .course-tag1.hot {
     background: #ef4444;
   }
   
-  .course-tag.new {
+  .course-tag1.new {
     background: #3b82f6;
   }
   

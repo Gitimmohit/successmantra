@@ -15,22 +15,25 @@ const Home = () => {
   const carouselItems = [
     {
       id: 1,
-      title: "GATE 2024 Preparation",
-      subtitle: "Comprehensive Courses for All Streams",
+      title: "One Platform for Complete UPSC, JPSC & BPSC Preparation",
+      subtitle: "Your Journey from Aspirant to Officer Starts Here",
       bgColor: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
       img: banner1,
     },
     {
       id: 2,
-      title: "New Batches Starting Soon",
-      subtitle: "Enroll Now for Early Bird Discount",
+      title:
+        "Complete Preparation for IBPS PO, SBI Clerk, RBI Assistant & More",
+      subtitle:
+        "Master IBPS, SBI, RBI & More with Expert Guidance & Smart Study Plans,Trusted by 1M+ Banking Aspirants for Consistent Selections.",
       bgColor: "linear-gradient(135deg, #10b981, #059669)",
       img: banner2,
     },
     {
       id: 3,
-      title: "Learn from Top Educators",
-      subtitle: "Experience the PW Difference",
+      title: "Fast-track Your Selection with Our Tailored Courses",
+      subtitle:
+        "Comprehensive coaching for RRB NTPC, Group D, ALP, and other railway exams. Learn from top educators and boost your chances of success.",
       bgColor: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
       img: banner3,
     },
@@ -76,12 +79,28 @@ const Home = () => {
             <div
               key={item.id}
               className="carousel-slide"
-              style={{ backgroundImage: `url(${item.img})` }}
+              style={{
+                backgroundImage: `url(${item.img})`,
+                height: "100%",
+                width: "100%",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
             >
               <div className="carousel-content">
                 <h2 className="carousel-title">{item.title}</h2>
                 <p className="carousel-subtitle">{item.subtitle}</p>
-                <button className="carousel-btn">Learn More</button>
+                <button
+                  className="carousel-btn"
+                  onClick={() => {
+                    document
+                      .getElementById("course")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Learn More
+                </button>
               </div>
             </div>
           ))}
@@ -115,7 +134,7 @@ const Home = () => {
       <div>
         <PWTrustedPlatform />
       </div>
-      <div className="content-section">
+      <div className="content-section" id="course">
         <PopularCourses />
       </div>
       <div>

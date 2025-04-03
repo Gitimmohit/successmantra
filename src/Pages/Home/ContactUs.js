@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaChevronDown } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaChevronDown,
+} from "react-icons/fa";
 import "./ContactUs.css";
 
 const ContactUs = () => {
@@ -40,12 +46,15 @@ const ContactUs = () => {
           {activeTab === "call" && (
             <div className="con-call">
               <h3 className="con-subheading">Instant Connect</h3>
-              <a href="tel:+919876543210" className="con-phone-link">
-                +91 9876543210
+              <a href="tel:+917033533221" className="con-phone-link">
+                +91 7033533221
               </a>
               <div className="con-whatsapp">
                 <FaWhatsapp className="con-whatsapp-icon" />
-                <a href="https://wa.me/919876543210" className="con-whatsapp-link">
+                <a
+                  href="https://wa.me/918825114644"
+                  className="con-whatsapp-link"
+                >
                   Message us on WhatsApp
                 </a>
               </div>
@@ -56,23 +65,44 @@ const ContactUs = () => {
           {activeTab === "email" && (
             <div className="con-email">
               <h3 className="con-subheading">Drop us a message</h3>
-              <a href="mailto:contact@successcoaching.com" className="con-email-link">
-                contact@successcoaching.com
+              <a
+                href="mailto:contact@successcoaching.com"
+                className="con-email-link"
+              >
+                successmantra@gmail.com
               </a>
               <p className="con-response">We reply within 6 working hours</p>
-              <button 
-                className="con-email-button" 
+              <button
+                className="con-email-button"
                 onClick={() => setIsEmailFormOpen(!isEmailFormOpen)}
               >
-                Quick Email Form <FaChevronDown className={`con-chevron ${isEmailFormOpen ? "con-rotate" : ""}`} />
+                Quick Email Form{" "}
+                <FaChevronDown
+                  className={`con-chevron ${
+                    isEmailFormOpen ? "con-rotate" : ""
+                  }`}
+                />
               </button>
-              
+
               {isEmailFormOpen && (
                 <form className="con-email-form">
-                  <input type="text" placeholder="Your Name" className="con-input" />
-                  <input type="email" placeholder="Your Email" className="con-input" />
-                  <textarea placeholder="Your Message" className="con-textarea"></textarea>
-                  <button type="submit" className="con-submit">Send Email</button>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="con-input"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="con-input"
+                  />
+                  <textarea
+                    placeholder="Your Message"
+                    className="con-textarea"
+                  ></textarea>
+                  <button type="submit" className="con-submit">
+                    Send Email
+                  </button>
                 </form>
               )}
             </div>
@@ -82,8 +112,10 @@ const ContactUs = () => {
             <div className="con-visit">
               <h3 className="con-subheading">Visit our center</h3>
               <address className="con-address">
-                123 Success Avenue<br />
-                Academic District, Ranchi<br />
+                123 Success Avenue
+                <br />
+                Academic District, Ranchi
+                <br />
                 Jharkhand - 834001
               </address>
               <div className="con-map-container">
@@ -95,7 +127,8 @@ const ContactUs = () => {
                 ></iframe>
               </div>
               <p className="con-visit-timing">
-                <strong>Open:</strong> 8AM-6PM, Monday-Saturday<br />
+                <strong>Open:</strong> 8AM-6PM, Monday-Saturday
+                <br />
                 <strong>Closed:</strong> Sunday and Public Holidays
               </p>
             </div>
@@ -104,26 +137,51 @@ const ContactUs = () => {
 
         {/* Quick Inquiry Accordion */}
         <div className="con-accordion">
-          <button 
-            className="con-accordion-header" 
+          <button
+            className="con-accordion-header"
             onClick={() => setIsQuickQuestionOpen(!isQuickQuestionOpen)}
           >
-            Have a quick question? <FaChevronDown className={`con-chevron ${isQuickQuestionOpen ? "con-rotate" : ""}`} />
+            Have a quick question?{" "}
+            <FaChevronDown
+              className={`con-chevron ${
+                isQuickQuestionOpen ? "con-rotate" : ""
+              }`}
+            />
           </button>
           {isQuickQuestionOpen && (
             <div className="con-accordion-content">
               <form className="con-quick-form">
                 <div className="con-form-row">
-                  <input type="text" placeholder="Name" className="con-input" required />
-                  <input type="tel" placeholder="Phone" className="con-input" required />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="con-input"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    className="con-input"
+                    required
+                  />
                 </div>
                 <select className="con-select" required>
                   <option value="">Select Course</option>
                   <option value="UPSC">UPSC</option>
                   <option value="JPSC">JPSC</option>
-                  <option value="SSC">SSC</option>
+                  <option value="BPSC">BPSC</option>
+                  <option value="NTPC">NTPC</option>
+                  <option value="ALP">ALP</option>
+                  <option value="RPF">RPF</option>
+                  <option value="GROUP-D">GROUP-D</option>
+                  <option value="BANKING-PO">BANKING-PO</option>
+                  <option value="JSSC">JSSC</option>
+                  <option value="BSSC">BSSC</option>
+                  <option value="OTHER">OTHER</option>
                 </select>
-                <button type="submit" className="con-submit">Request Callback</button>
+                <button type="submit" className="con-submit">
+                  Request Callback
+                </button>
               </form>
             </div>
           )}

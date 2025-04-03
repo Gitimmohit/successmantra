@@ -1,143 +1,107 @@
 import React, { useState, useEffect } from "react";
 import "./PopularCourses.css";
+import { useNavigate } from "react-router-dom";
 
 const PopularCourses = () => {
-  // Live stats data
-  const liveStats = [
-    {
-      title: "Daily Live",
-      description: "Interactive classes",
-      icon: "🎯",
-    },
-    {
-      title: "10 Million +",
-      description: "Tests, sample papers & notes",
-      icon: "📚",
-    },
-    {
-      title: "24 x 7",
-      description: "Doubt solving sessions",
-      icon: "🕒",
-    },
-    {
-      title: "100 +",
-      description: "Offline centres",
-      icon: "🏢",
-    },
-  ];
+  const navigate = useNavigate();
 
   // Course data
   const allCourses = [
+    // SSC Courses
     {
       id: 1,
-      title: "UGRE 2025",
-      tag: "FREE",
-      description: "Comprehensive preparation for undergraduate entrance",
-      price: "$99",
-      discount: "200% OFF",
-      author: "By Dane Elm",
-      category: "Foundation",
+      title: "SSC CGL Complete Course",
+      tag: "BESTSELLER",
+      description: "Comprehensive preparation for Combined Graduate Level exam",
+      author: "By Success Mantra Faculty",
+      category: "SSC",
     },
     {
       id: 2,
-      title: "MISSION CUET 2025",
-      description: "Complete CUET exam preparation package",
-      price: "$129",
-      discount: "150% OFF",
+      title: "SSC CHSL Mastery",
+      description:
+        "Complete preparation for Lower Division Clerk/Postal Assistant",
       author: "By Success Mantra Faculty",
-      category: "Entrance Exam",
+      category: "SSC",
     },
     {
       id: 3,
-      title: "RAILWAY TEACHER RECRUITMENT 2025",
-      description: "Specialized coaching for teaching positions",
-      price: "$149",
-      discount: "180% OFF",
-      author: "By Expert Educators",
-      category: "Government Job",
+      title: "SSC GD Constable",
+      tag: "NEW",
+      description: "Physical + Written exam preparation package",
+      author: "Rishabh Sir",
+      category: "SSC",
     },
     {
       id: 4,
-      title: "HISTORY Foundation",
-      description: "Complete historical studies package",
-      price: "$79",
-      discount: "200% OFF",
-      author: "By Dane Elm",
-      category: "Academic",
+      title: "SSC MTS Professional",
+      description: "Specialized training for Multi-Tasking Staff exam",
+      author: "By Success Mantra Faculty",
+      category: "SSC",
     },
+
+    // Railway Courses
     {
       id: 5,
-      title: "NEET 2025 Crash Course",
-      tag: "HOT",
-      description: "Last minute preparation for NEET aspirants",
-      price: "$199",
-      discount: "120% OFF",
-      author: "By Medical Experts",
-      category: "Medical",
+      title: "Railway NTPC Pro",
+      description: "Complete preparation for Non-Technical Popular Categories",
+      author: "Rishabh Sir",
+      category: "Railway",
     },
     {
       id: 6,
-      title: "JEE Advanced 2025",
-      description: "Advanced concepts for engineering entrance",
-      price: "$179",
-      discount: "160% OFF",
-      author: "By IIT Alumni",
-      category: "Engineering",
+      title: "Railway ALP Technician",
+      description:
+        "Technical + Non-Technical modules for Assistant Loco Pilots",
+      author: "By Success Mantra Faculty",
+      category: "Railway",
     },
     {
       id: 7,
-      title: "UPSC Prelims 2025",
-      description: "Complete civil services preliminary exam preparation",
-      price: "$159",
-      discount: "140% OFF",
-      author: "By Civil Servants",
-      category: "Civil Services",
+      title: "Railway RPF Complete",
+      description: "Specialized training for Railway Protection Force exam",
+      author: "Rishabh Sir",
+      category: "Railway",
     },
     {
       id: 8,
-      title: "Bank PO Foundation",
-      tag: "NEW",
-      description: "Bank probationary officer exam preparation",
-      price: "$119",
-      discount: "170% OFF",
-      author: "By Banking Experts",
+      title: "Railway Group-D Express",
+      description: "Foundation course for Level-1 posts",
+      author: "Rishabh Sir",
+      category: "Railway",
+    },
+
+    // Banking Courses
+    {
+      id: 9,
+      title: "Bank PO Professional",
+      tag: "HOT",
+      description: "Complete Probationary Officer exam preparation",
+      author: "By Success Mantra Faculty",
       category: "Banking",
     },
     {
-      id: 9,
-      title: "SSC CGL 2025",
-      description: "Staff Selection Commission combined graduate level",
-      price: "$139",
-      discount: "130% OFF",
-      author: "By Government Exam Experts",
-      category: "Government Job",
-    },
-    {
       id: 10,
-      title: "CAT 2025 MBA Prep",
-      description: "Complete MBA entrance preparation",
-      price: "$169",
-      discount: "110% OFF",
-      author: "By IIM Alumni",
-      category: "Management",
+      title: "Bank Clerk Foundation",
+      description: "Specialized training for clerical level examinations",
+      author: "Rishabh Sir",
+      category: "Banking",
     },
+
+    // State PSCs
     {
       id: 11,
-      title: "CLAT 2025",
-      description: "Law entrance examination preparation",
-      price: "$149",
-      discount: "125% OFF",
-      author: "By Legal Experts",
-      category: "Law",
+      title: "JPSC Comprehensive",
+      description: "Complete Jharkhand Public Service Commission preparation",
+      author: "By Success Mantra Faculty",
+      category: "State PSC",
     },
     {
       id: 12,
-      title: "GATE 2025 CS & IT",
-      description: "Graduate aptitude test in engineering for computer science",
-      price: "$189",
-      discount: "135% OFF",
-      author: "By Tech Experts",
-      category: "Engineering",
+      title: "JSSC Specialized",
+      description: "Jharkhand Staff Selection Commission complete package",
+      author: "By Success Mantra Faculty",
+      category: "State PSC",
     },
   ];
 
@@ -157,6 +121,10 @@ const PopularCourses = () => {
     }, 800);
   };
 
+  const handleEnroll = () => {
+    navigate("/register", { state: { scrollTo: "reg" } });
+  };
+
   return (
     <section className="popular-courses">
       <div className="container-p">
@@ -164,10 +132,9 @@ const PopularCourses = () => {
         <span className={`section-title ${animated ? "animate-fade-in" : ""}`}>
           Popular Courses
         </span>
-        <hr/>
+        <hr />
 
         {/* Live Stats Section - Positioned below the heading */}
-
 
         {/* Courses Grid */}
         <div className="courses-grid">
@@ -179,7 +146,7 @@ const PopularCourses = () => {
             >
               {course.tag && (
                 <span
-                  className={`course-tag ${course.tag.toLowerCase()} ${
+                  className={`course-tag1 ${course.tag.toLowerCase()} ${
                     animated ? "animate-pop" : ""
                   }`}
                 >
@@ -194,13 +161,15 @@ const PopularCourses = () => {
                 <span className="course-category">{course.category}</span>
                 <div className="course-pricing">
                   <span className="original-price">{course.price}</span>
-                  <span className="discount">{course.discount}</span>
+                  {/* <span className="discount">{course.discount}</span> */}
                 </div>
               </div>
 
               <div className="course-author">{course.author}</div>
 
-              <button className="enroll-btn">Enroll Now</button>
+              <button className="enroll-btn" onClick={handleEnroll}>
+                Enroll Now
+              </button>
             </div>
           ))}
         </div>

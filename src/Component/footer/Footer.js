@@ -21,25 +21,19 @@ const Footer = () => {
               <RiSendPlaneFill className="send-icon" />
             </button>
           </div>
-          <div className="app-download">
-            <p>Download Our App:</p>
-            <div className="app-buttons">
-              <button className="play-store">Google Play</button>
-              <button className="app-store">App Store</button>
-            </div>
-          </div>
+         
         </div>
 
         {/* Quick Links */}
         <div className="footer-links">
           <div className="link-column">
-            <h4>Courses</h4>
+            <h4>Top Courses</h4>
             <ul>
-              <li>NEET UG</li>
-              <li>JEE Main</li>
-              <li>JEE Advanced</li>
-              <li>Foundation (9-10)</li>
-              <li>UPSC Preparation</li>
+              <li>UPSC</li>
+              <li>Banking</li>
+              <li>Railway</li>
+              <li>JPSC</li>
+              <li>JSSC</li>
             </ul>
           </div>
           <div className="link-column">
@@ -52,16 +46,7 @@ const Footer = () => {
               <li>Topper Sheets</li>
             </ul>
           </div>
-          <div className="link-column">
-            <h4>Company</h4>
-            <ul>
-              <li>About Us</li>
-              <li>Our Teachers</li>
-              <li>Results</li>
-              <li>Careers</li>
-              <li>Contact</li>
-            </ul>
-          </div>
+         
         </div>
 
         {/* Contact Info */}
@@ -69,15 +54,15 @@ const Footer = () => {
           <h4>Get in Touch</h4>
           <div className="contact-item">
             <FaPhone className="contact-icon" />
-            <span>+91 9876543210</span>
+            <span>+91 7033533221</span>
           </div>
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />
-            <span>contact@pwcoaching.com</span>
+            <span>succesmanta@gmail.com</span>
           </div>
           <div className="contact-item">
             <FaMapMarkerAlt className="contact-icon" />
-            <span>Delhi | Bangalore | Hyderabad | Kota</span>
+            <span>Jamshedpur Adityapur Shere-E-Punjab Mishra Building </span>
           </div>
           
           <div className="social-links">
@@ -92,12 +77,12 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <div className="footer-logo">PW</div>
+        {/* <div className="footer-logo">PW</div> */}
         <div className="legal-links">
           <span>Privacy Policy</span>
           <span>Terms & Conditions</span>
           <span>Refund Policy</span>
-          <span>© 2024 Physics Wallah. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Succes Manta. All rights reserved.</span>
         </div>
       </div>
       

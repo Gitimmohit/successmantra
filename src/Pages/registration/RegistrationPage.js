@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   FaUserGraduate,
   FaBook,
@@ -36,6 +36,17 @@ const RegistrationPage = () => {
   });
   const [activeTab, setActiveTab] = useState("form");
   const [showAllCourses, setShowAllCourses] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   const courses = [
     {
@@ -192,7 +203,7 @@ const RegistrationPage = () => {
             Take the first step towards your career goals with our expert
             guidance
           </p>
-          <div className="reg-hero-buttons">
+          <div className="reg-hero-buttons" id="reg">
             <button
               className={`reg-hero-btn ${
                 activeTab === "form" ? "reg-active-tab" : ""

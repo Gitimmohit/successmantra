@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./PopularCourses.css";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PopularCourses = () => {
   const navigate = useNavigate();
+// for animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true,
+    });
+  }, []);
+// data-aos="fade-up"
 
   // Course data
   const allCourses = [
@@ -129,7 +139,7 @@ const PopularCourses = () => {
     <section className="popular-courses">
       <div className="container-p">
         {/* Popular Courses Heading */}
-        <span className={`section-title ${animated ? "animate-fade-in" : ""}`}>
+        <span className={`section-title ${animated ? "animate-fade-in" : ""}`} data-aos="fade-up">
           Popular Courses
         </span>
         <hr />
@@ -137,7 +147,7 @@ const PopularCourses = () => {
         {/* Live Stats Section - Positioned below the heading */}
 
         {/* Courses Grid */}
-        <div className="courses-grid">
+        <div className="courses-grid" data-aos="fade-up">
           {allCourses.slice(0, visibleCourses).map((course, index) => (
             <div
               key={course.id}
@@ -175,7 +185,7 @@ const PopularCourses = () => {
         </div>
 
         {visibleCourses < allCourses.length && (
-          <div className="load-more-container">
+          <div className="load-more-container" data-aos="fade-up">
             <button
               className={`load-more-btn ${isLoading ? "loading" : ""}`}
               onClick={loadMoreCourses}

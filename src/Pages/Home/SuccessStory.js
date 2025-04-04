@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMedal, FaStar, FaQuoteLeft, FaArrowRight } from 'react-icons/fa';
 import './SuccessStory.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import img1 from  "../../img/one.jpeg"
+import img2 from "../../img/two.jpeg"
+import img3 from "../../img/three.jpeg"
 
 const SuccessStory = () => {
+  //for animation
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, 
+        once: true,
+      });
+    }, []);
+  // data-aos="fade-up"
+
   const [activeTab, setActiveTab] = useState('all');
   const [expandedCard, setExpandedCard] = useState(null);
 
@@ -13,44 +27,46 @@ const SuccessStory = () => {
   const successStories = [
     {
       id: 1,
-      name: 'Rahul Sharma',
-      photo: 'RS',
-      rank: 1,
-      score: '98%',
-      batch: 'JPSC 2022',
-      subjects: ['History', 'Polity', 'Geography'],
-      year: '2022',
-      testimonial: 'The comprehensive study material and regular mock tests helped me secure Rank 1 in JPSC. The faculty guidance was exceptional!',
+      name: 'Priya Kumari',
+      rank: 9,
+      photo: img3,
+      score: '95%',
+      batch: 'SBI PO 2024',
+      subjects: ['Quantitative Aptitude', 'Reasoning', 'English'],
+      year: '2024',
+      small:"Thanks to Success Mantra’s expert guidance and unwavering support, I secured 9th rank in SBI PO 2024",
+      testimonial: 'Thanks to the focused practice sessions and expert mentorship, I was able to secure Rank 9 in SBI PO 2024. The personalized guidance made all the difference!',
     },
     {
       id: 2,
-      name: 'Priya Patel',
-      photo: 'PP',
+      name: 'Dulal Modak',
+      photo: img2,
       rank: 3,
       score: '95%',
-      batch: 'SSC CGL 2021',
-      subjects: ['Quant', 'Reasoning', 'English'],
+      batch: 'SSC GD 2021',
+      small: "Grateful to Success Mantra for their continuous support in helping me crack SSC GD with confidence.",
+      subjects: ['General Awareness', 'Reasoning', 'Quantitative Aptitude'],
       year: '2021',
-      testimonial: 'The structured approach and doubt-clearing sessions made all the difference in my preparation journey.',
-    },
+      testimonial: 'Success Mantra’s focused preparation strategy and practice sessions played a key role in my SSC GD journey.',
+    },    
     {
       id: 3,
-      name: 'Priya Patel',
-      photo: 'PP',
-      rank: 3,
-      score: '95%',
-      batch: 'SSC CGL 2021',
-      subjects: ['Quant', 'Reasoning', 'English'],
-      year: '2021',
-      testimonial: 'The structured approach and doubt-clearing sessions made all the difference in my preparation journey.',
-    },
-    // Add more stories as needed
+      name: 'Rahul Kumar',
+      photo: img1,
+      rank: 167,
+      score: '92%',
+      batch: 'SBI PO 2024',
+      subjects: ['Quantitative Aptitude', 'Reasoning Ability', 'English Language'],
+      small: "A heartfelt thanks to Success Mantra for guiding me through every step of my SBI PO Mains preparation.",
+      year: '2024',
+      testimonial: "Clearing SBI PO Mains wouldn't have been possible without the mock tests, strategy sessions, and constant motivation from the Success Mantra team.",
+    },    
   ];
 
   return (
     <section className="success-showcase">
       {/* Header Section */}
-      <div className="showcase-header">
+      <div className="showcase-header" data-aos="fade-up">
         <h1>
           Our <span className="highlight">Success Stories</span>
           <FaMedal className="medal-icon" />
@@ -59,7 +75,7 @@ const SuccessStory = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="story-grid">
+      <div className="story-grid" data-aos="fade-up">
         {successStories.map((student) => (
           <div
             key={student.id}
@@ -70,13 +86,16 @@ const SuccessStory = () => {
               {/* Front of Card */}
               <div className="card-front">
                 <div className="student-badge">
-                  <div className="avatar">{student.photo}</div>
+                  <div className="avatar">
+                  <img src={student.photo} alt={student.name} style={{height:"100%",width:"100%",borderRadius:"50%"}}/>
+                  </div>
                   <div className="rank-bubble">
                     <FaStar className="star-icon" />
                     <span>#{student.rank}</span>
                   </div>
                 </div>
                 <h3>{student.name}</h3>
+                <span>{student.small}</span>
                 <p className="score">{student.score}</p>
                 <div className="batch-tag">{student.batch}</div>
                 <FaQuoteLeft className="quote-icon" />

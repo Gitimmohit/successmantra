@@ -4,7 +4,10 @@
     background: #f9f9f9;
     text-align: center;
   }
-  
+  .feature-icon {
+    font-size: 2rem;
+    color: #1d4ed8; /* Or use a color matching your theme */
+  }
   .why-choose-us h2 {
     font-size: 36px;
     margin-bottom: 15px;

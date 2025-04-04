@@ -10,8 +10,20 @@ import banner2 from "../../img/banner2.jpg";
 import banner3 from "../../img/banner3.jpg";
 import WhyChooseUs from "./WhyChooseUs";
 import ContactUs from "./ContactUs";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const Home = () => {
+//for animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true,
+    });
+  }, []);
+// data-aos="fade-up"
+
   const carouselItems = [
     {
       id: 1,

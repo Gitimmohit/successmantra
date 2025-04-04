@@ -1,49 +1,57 @@
 import React, { useEffect, useState } from "react";
 import "./PWTrustedPlatform.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PWTrustedPlatform = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const liveTestimonials = [
-      {
-        id: 1,
-        text: "Success Mantra's banking masterclass helped me crack SBI PO .",
-        name: "Rahul Verma",
-        photo: "👨‍💼",
-        exam: "SBI PO 2023",
-        achievement: "All India Rank 24"
-      },
-      {
-        id: 2,
-        text: "From doubt to selection - Success Mantra's SSC GD course made it possible!",
-        name: "Priya Yadav",
-        photo: "👮‍♀️",
-        exam: "SSC GD 2024",
-        achievement: "Selected in first attempt"
-      },
-      {
-        id: 3,
-        text: "The daily current affairs sessions at Success Mantra were key for my RBI Grade B success",
-        name: "Amit Deshmukh",
-        photo: "👨‍⚖️",
-        exam: "RBI Grade B 2023",
-        achievement: "Phase II Score: 78/100"
-      },
-      {
-        id: 4,
-        text: "Quant shortcuts from Success Mantra helped me secore 9th rank in SBI PO",
-        name: "Neha Gupta",
-        photo: "👩‍💻",
-        exam: "IBPS Clerk 2024",
-        achievement: "Perfect score in Quantitative Aptitude"
-      },
-      {
-        id: 5,
-        text: "Success Mantra's interview guidance got me through the toughest UPSC interview panel!",
-        name: "Ankit Joshi",
-        photo: "👨‍🎓",
-        exam: "UPSC CSE 2023",
-        achievement: "Final Rank 112"
-      }
-    
+    {
+      id: 1,
+      text: "Success Mantra's banking masterclass helped me crack SBI PO .",
+      name: "Rahul Verma",
+      photo: "👨‍💼",
+      exam: "SBI PO 2023",
+      achievement: "All India Rank 24",
+    },
+    {
+      id: 2,
+      text: "From doubt to selection - Success Mantra's SSC GD course made it possible!",
+      name: "Priya Yadav",
+      photo: "👮‍♀️",
+      exam: "SSC GD 2024",
+      achievement: "Selected in first attempt",
+    },
+    {
+      id: 3,
+      text: "The daily current affairs sessions at Success Mantra were key for my RBI Grade B success",
+      name: "Amit Deshmukh",
+      photo: "👨‍⚖️",
+      exam: "RBI Grade B 2023",
+      achievement: "Phase II Score: 78/100",
+    },
+    {
+      id: 4,
+      text: "Quant shortcuts from Success Mantra helped me secore 9th rank in SBI PO",
+      name: "Neha Gupta",
+      photo: "👩‍💻",
+      exam: "IBPS Clerk 2024",
+      achievement: "Perfect score in Quantitative Aptitude",
+    },
+    {
+      id: 5,
+      text: "Success Mantra's interview guidance got me through the toughest UPSC interview panel!",
+      name: "Ankit Joshi",
+      photo: "👨‍🎓",
+      exam: "UPSC CSE 2023",
+      achievement: "Final Rank 112",
+    },
   ];
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -63,11 +71,11 @@ const PWTrustedPlatform = () => {
     <section className="trusted-platform">
       <div className="container1">
         {/* Main Heading Section with gradient background */}
-        <div className="main-heading-section">
+        <div className="main-heading-section" data-aos="fade-up">
           <h1 className="main-heading">
             <span className="gradient-text">Best & Affordable</span>
             <br />
-            <span className="highlight-text">Educational Platform</span>
+            <span className="highlight-text1">Educational Platform</span>
           </h1>
           <p className="sub-heading">
             Unlock your potential by signing up with{" "}
@@ -78,16 +86,14 @@ const PWTrustedPlatform = () => {
         </div>
 
         {/* Decorative Divider */}
-        <div className="divider">
+        <div className="divider" data-aos="fade-up">
           <div className="divider-line"></div>
           <div className="divider-icon">📚</div>
           <div className="divider-line"></div>
         </div>
 
         {/* Get Started Section */}
-        <div
-          className="get-started-section"          
-        >
+        <div className="get-started-section" data-aos="fade-up">
           <h2 className="section-title1">
             <span className="section-title1-icon">🚀</span>
             Get Started
@@ -141,14 +147,14 @@ const PWTrustedPlatform = () => {
         </div>
 
         {/* Decorative Divider */}
-        <div className="divider">
+        <div className="divider" data-aos="fade-up">
           <div className="divider-line"></div>
           <div className="divider-icon">🎓</div>
           <div className="divider-line"></div>
         </div>
 
         {/* Alakh Sir Section with testimonial style */}
-        <div className="alakh-section">
+        <div className="alakh-section" data-aos="fade-up">
           <div className="quote-icon">❝</div>
           <h3 className="alakh-question">
             Rishabh Sir, What is Success Mantra?

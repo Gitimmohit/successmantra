@@ -103,7 +103,7 @@ const ContactPage = () => {
               </div>
               <div className="info-content">
                 <h3>Our Location</h3>
-                <p>123 Education Street, Ranchi, Jharkhand - 834001</p>
+                <p>Jamshedpur Adityapur Shere-E-Punjab Mishra Building </p>
               </div>
             </div>
 

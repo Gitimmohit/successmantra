@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaPhone,
   FaEnvelope,
@@ -7,8 +7,19 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 import "./ContactUs.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ContactUs = () => {
+
+//for animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true,
+    });
+  }, []);
+
   const [activeTab, setActiveTab] = useState("call");
   const [isEmailFormOpen, setIsEmailFormOpen] = useState(false);
   const [isQuickQuestionOpen, setIsQuickQuestionOpen] = useState(false);
@@ -16,11 +27,11 @@ const ContactUs = () => {
   return (
     <section className="con-section">
       <div className="con-container">
-        <h2 className="con-heading">Let's Connect for Your Success!</h2>
-        <p className="con-tagline">Choose your preferred way to reach us</p>
+        <h2 className="con-heading" data-aos="fade-up">Let's Connect for Your Success!</h2>
+        <p className="con-tagline" data-aos="fade-up">Choose your preferred way to reach us</p>
 
         {/* Interactive Contact Tabs */}
-        <div className="con-tabs">
+        <div className="con-tabs" data-aos="fade-up">
           <button
             className={`con-tab ${activeTab === "call" ? "con-active" : ""}`}
             onClick={() => setActiveTab("call")}
@@ -44,10 +55,10 @@ const ContactUs = () => {
         {/* Dynamic Contact Content */}
         <div className="con-content">
           {activeTab === "call" && (
-            <div className="con-call">
+            <div className="con-call" data-aos="fade-up">
               <h3 className="con-subheading">Instant Connect</h3>
-              <a href="tel:+917033533221" className="con-phone-link">
-                +91 7033533221
+              <a href="tel:+918825114644" className="con-phone-link">
+                +91 8825114644
               </a>
               <div className="con-whatsapp">
                 <FaWhatsapp className="con-whatsapp-icon" />
@@ -63,7 +74,7 @@ const ContactUs = () => {
           )}
 
           {activeTab === "email" && (
-            <div className="con-email">
+            <div className="con-email" data-aos="fade-up">
               <h3 className="con-subheading">Drop us a message</h3>
               <a
                 href="mailto:contact@successcoaching.com"
@@ -109,14 +120,10 @@ const ContactUs = () => {
           )}
 
           {activeTab === "visit" && (
-            <div className="con-visit">
+            <div className="con-visit" data-aos="fade-up">
               <h3 className="con-subheading">Visit our center</h3>
               <address className="con-address">
-                123 Success Avenue
-                <br />
-                Academic District, Ranchi
-                <br />
-                Jharkhand - 834001
+              Jamshedpur Adityapur Shere-E-Punjab Mishra Building
               </address>
               <div className="con-map-container">
                 <iframe
@@ -136,7 +143,7 @@ const ContactUs = () => {
         </div>
 
         {/* Quick Inquiry Accordion */}
-        <div className="con-accordion">
+        <div className="con-accordion" data-aos="fade-up">
           <button
             className="con-accordion-header"
             onClick={() => setIsQuickQuestionOpen(!isQuickQuestionOpen)}
@@ -149,7 +156,7 @@ const ContactUs = () => {
             />
           </button>
           {isQuickQuestionOpen && (
-            <div className="con-accordion-content">
+            <div className="con-accordion-content" data-aos="fade-up">
               <form className="con-quick-form">
                 <div className="con-form-row">
                   <input

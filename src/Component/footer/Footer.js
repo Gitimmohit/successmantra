@@ -30,10 +30,11 @@ const Footer = () => {
             <h4>Top Courses</h4>
             <ul>
               <li>UPSC</li>
-              <li>Banking</li>
-              <li>Railway</li>
               <li>JPSC</li>
-              <li>JSSC</li>
+              <li>BPSC</li>
+              <li>SSC</li>
+              <li>Railway</li>
+              <li>Banking</li>
             </ul>
           </div>
           <div className="link-column">
@@ -54,7 +55,7 @@ const Footer = () => {
           <h4>Get in Touch</h4>
           <div className="contact-item">
             <FaPhone className="contact-icon" />
-            <span>+91 7033533221</span>
+            <span>+91 8825114644</span>
           </div>
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />

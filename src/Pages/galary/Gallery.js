@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 import galary from "../../img/gal2.jpeg";
+import first from "../../img/first.jpeg";
+import second from "../../img/second.jpeg";
+import third from "../../img/third.jpeg";
+import four from "../../img/four.jpeg";
+import five from "../../img/five.jpeg";
+import six from "../../img/six.jpeg";
+
+
+
 import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Gallery = () => {
@@ -8,52 +17,54 @@ const Gallery = () => {
   const achievements = [
     {
       id: 1,
-      title: "Top Coaching Center 2023",
-      description: "Awarded as the best coaching center in the state for our exceptional results",
-      date: "15 Jan 2023",
-      image: "award1.jpg",
-      category: "Awards",
+      title: "Secured 9th Rank in SBI PO 2024",
+      description: "Grateful to Success Mantra for their expert guidance and continuous support throughout my preparation journey. This achievement wouldn't have been possible without their structured approach and dedicated mentorship.",
+      date: "2024",
+      image: first, 
+      category: "Sbi Po",
     },
     {
       id: 2,
-      title: "1000+ Successful Students",
-      description: "Crossed the milestone of 1000+ successful placements and admissions",
-      date: "30 Mar 2023",
-      image: "milestone.jpg",
-      category: "Milestones",
+      title: "Secured 9th Rank in SBI Clerk 2024",
+      description: "Heartfelt thanks to Success Mantra for their unwavering support and expert guidance which played a crucial role in my SBI Clerk success.",
+      date: "2024",
+      image: second, // make sure 'second' is correctly imported or defined
+      category: "SBI Clerk",
     },
+    
     {
       id: 3,
-      title: "New Center Inauguration",
-      description: "Opened our new state-of-the-art facility in the city center",
-      date: "12 May 2023",
-      image: "center.jpg",
-      category: "Infrastructure",
+      title: "Cleared SSC GD with Flying Colors",
+      description: "Grateful to Success Mantra for their consistent guidance, mock tests, and personal mentorship that helped me crack SSC GD.",
+      date: "2024",
+      image: third, // ensure 'third' is correctly imported or defined
+      category: "SSC GD",
     },
+    
     {
       id: 4,
-      title: "Best Faculty Team",
-      description: "Recognized for having the most qualified and experienced teaching staff",
-      date: "8 Jul 2023",
-      image: "faculty.jpg",
-      category: "Recognition",
+      title: "Success in SBI PO 2024",
+      description: "Heartfelt thanks to Success Mantra for their expert mentorship and structured preparation strategy that helped me secure selection in SBI PO.",
+      date: "2024",
+      image: four, // Ensure 'four' is correctly imported or defined
+      category: "SBI PO",
     },
     {
       id: 5,
-      title: "Innovative Teaching Award",
-      description: "Received award for our revolutionary teaching methodology",
-      date: "22 Sep 2023",
-      image: "teaching.jpg",
-      category: "Awards",
-    },
+      title: "Cleared SBI PO Prelims 2024",
+      description: "Thanks to Success Mantra's innovative teaching and continuous guidance, I successfully cleared the SBI PO Prelims 2024 on my first attempt.",
+      date: "2024",
+      image: five, // Ensure 'five' is properly imported or defined
+      category: "SBI PO Prelims",
+    },    
     {
       id: 6,
-      title: "Student Success Stories",
-      description: "Featured in national magazine for outstanding student achievements",
+      title: "Cleared Bihar Police Exam 2023",
+      description: "Thanks to Success Mantra’s strategic guidance and consistent support, I successfully cleared the Bihar Police Exam 2023. Grateful for the journey!",
       date: "5 Nov 2023",
-      image: "feature.jpg",
-      category: "Media",
-    },
+      image: six, // Ensure 'six' is properly imported or defined
+      category: "Bihar Police",
+    }    
   ];
 
   const news = [
@@ -61,7 +72,7 @@ const Gallery = () => {
       id: 1,
       title: "New Batch Announcement",
       excerpt: "We are launching new batches for competitive exam preparation",
-      date: "10 Dec 2023",
+      date: "2023",
     },
     {
       id: 2,
@@ -95,45 +106,63 @@ const Gallery = () => {
     };
   }, []);
 
-
   const [feedback, setFeedback] = useState([
     {
       id: 1,
-      name: "Rahul Sharma",
-      role: "UPSC 2022 Topper",
+      name: "Rohit Verma",
+      role: "SBI PO 2024 (Rank 9)",
       rating: 5,
-      comment: "The guidance and study material provided by this institute helped me secure Rank 12 in UPSC. The faculty's dedication is unmatched!",
-      image: "student1.jpg",
+      comment: "Securing 9th rank in SBI PO was a dream come true. Success Mantra’s structured guidance, practice sessions, and personal mentorship helped me stay focused and consistent throughout the journey.",
+      image: first,
       selected: true
     },
     {
       id: 2,
-      name: "Priya Patel",
-      role: "SSC CGL 2023",
+      name: "Anjali Yadav",
+      role: "SBI Clerk 2024 (Rank 9)",
       rating: 5,
-      comment: "I cleared SSC CGL in my first attempt thanks to the strategic approach and regular mock tests conducted by the institute.",
-      image: "student2.jpg",
+      comment: "I owe my success in SBI Clerk 2024 to Success Mantra. Their test series and concept clarity sessions made all the difference. Thank you for being the guiding light in my journey.",
+      image: second,
       selected: false
     },
     {
       id: 3,
-      name: "Amit Singh",
-      role: "JPSC 2021",
-      rating: 4,
-      comment: "The interview preparation sessions were extremely helpful. The mentors gave personalized attention to each student.",
-      image: "student3.jpg",
+      name: "Suresh Kumar",
+      role: "SSC GD 2024",
+      rating: 5,
+      comment: "Clearing SSC GD felt easy with the kind of consistent support and mock drills provided by Success Mantra. Truly grateful for the team’s dedicated efforts!",
+      image: third,
       selected: false
     },
     {
       id: 4,
-      name: "Neha Gupta",
-      role: "Banking PO 2023",
+      name: "Pooja Sharma",
+      role: "SBI PO 2024 (Selected)",
       rating: 5,
-      comment: "The faculty's expertise in quantitative aptitude helped me improve my score dramatically in just 3 months!",
-      image: "student4.jpg",
+      comment: "Cracking SBI PO wouldn't have been possible without Success Mantra’s personalized strategy and focused approach. The faculty here is top-notch.",
+      image: four,
+      selected: false
+    },
+    {
+      id: 5,
+      name: "Arvind Mishra",
+      role: "SBI PO Prelims 2024",
+      rating: 5,
+      comment: "Thank you Success Mantra for guiding me to crack the SBI PO Prelims on my first attempt. The innovative teaching style made complex topics so much easier!",
+      image: five,
+      selected: false
+    },
+    {
+      id: 6,
+      name: "Meena Kumari",
+      role: "Bihar Police 2023",
+      rating: 5,
+      comment: "Clearing Bihar Police exam was only possible because of Success Mantra’s well-structured classes and practice-based approach. Forever thankful!",
+      image: six,
       selected: false
     }
   ]);
+  
 
   const [activeFeedback, setActiveFeedback] = useState(0);
   const [formData, setFormData] = useState({
@@ -263,8 +292,9 @@ const Gallery = () => {
           >
             <div className="gr-card-image">
               <img
-                src={galary}
+                src={achievement.image}
                 alt={achievement.title}
+                style={{height:"100%",width:"100%",objectFit: "cover"}}
               />
               <div className="gr-category-badge">{achievement.category}</div>
             </div>
@@ -335,7 +365,7 @@ const Gallery = () => {
         >
           <div className="gr-feedback-image">
             <img 
-              src={galary} 
+              src={item.image} 
               alt={item.name} 
               className="gr-feedback-avatar"
             />
@@ -346,7 +376,7 @@ const Gallery = () => {
           <div className="gr-feedback-content">
             <FaQuoteLeft className="gr-quote-icon" />
             <p className="gr-feedback-comment">
-              "{item.comment}"
+              {item.comment}
             </p>
             <div className="gr-feedback-rating">
               {[...Array(5)].map((_, i) => (

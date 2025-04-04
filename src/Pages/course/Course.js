@@ -1,217 +1,314 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  FaBook,
+  FaCalendarAlt,
+  FaChalkboardTeacher,
+  FaClock,
+  FaLaptop,
+  FaUniversity,
+  FaGraduationCap,
+  FaRegCalendarCheck,
+  FaSearch,
+  FaFilter,
+  FaArrowRight,
+  FaChalkboard,
+  FaUserTie,
+  FaMicrophone,
+  FaShieldAlt,
+  FaTrain,
+  FaCertificate,
+} from "react-icons/fa";
 import "./Courses.css";
 import img from "../../img/course.jpg";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Courses = () => {
-  // Sample course data
-  const allCoursesData = [
+  const navigate = useNavigate();
+
+  // Online course data
+  const onlineCourses = [
     {
       id: 1,
-      title: "UPPSC RO/ARO MAINS",
-      subtitle: "Re-Exam Foundation Batch 2025",
-      features: ["Recorded (Pre-Mains) 15", "RIDE Practice Test", "Mixed Test"],
-      fullTitle: "UPPSC RO/ARO (Pre+Mains) Re-Exam Foundation Batch Recorded",
-      startDate: "24 Mar 2025",
-      endDate: "30 Sep 2025",
-      price: "₹499",
-      originalPrice: "₹799",
+      title: "UPSC Foundation",
+      subtitle: "Prelims + Mains Batch 2025",
+      features: ["Comprehensive Study Plan", "Current Affairs", "Test Series"],
+      fullTitle: "UPSC Prelims + Mains Foundation Batch 2025",
+      startDate: "class start soon",
+      endDate: "",
       mode: "Online",
-      discount: "38% OFF",
+      icon: <FaUniversity className="co-course-icon" />,
+      comingSoon: true,
     },
     {
       id: 2,
-      title: "UPPSC RO/ARO RE-EXAM REVISION",
-      subtitle: "Batch-2025",
-      features: [
-        "Comprehensive Revision",
-        "Previous Year Papers",
-        "Mock Tests",
-      ],
-      fullTitle: "UPPSC RO/ARO Re-Exam Revision Batch 2025",
-      startDate: "01 Apr 2025",
-      endDate: "31 Jul 2025",
-      price: "₹499",
-      originalPrice: "₹799",
+      title: "JPSC Mains Crash Course",
+      subtitle: "Intensive Revision Batch 2025",
+      features: ["Answer Writing Practice", "Mock Tests", "Conceptual Clarity"],
+      fullTitle: "JPSC Mains Intensive Revision Batch 2025",
+      startDate: "class start soon",
+      endDate: "",
       mode: "Online",
-      discount: "38% OFF",
+      icon: <FaBook className="co-course-icon" />,
+      comingSoon: true,
+    },
+    // Add more online courses with comingSoon: true
+  ];
+
+  // Offline course data
+  const offlineCourses = [
+    {
+      id: 101,
+      title: "UPSC Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Daily Classes", "Study Material", "Test Series"],
+      fullTitle: "UPSC Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaUniversity className="co-course-icon" />,
     },
     {
-      id: 3,
-      title: "Bihar SSC BSO/SSO/CGL 4",
-      subtitle: "Batch 3rd Mains",
-      features: [
-        "By Khan Sir and Team",
-        "Complete Syllabus Coverage",
-        "Practice Tests",
-      ],
-      fullTitle: "BSO/SSO & BSSC CGL 4 (PT +Mains) Batch-2025",
-      startDate: "02 Apr 2025",
-      endDate: "31 Oct 2025",
-      price: "₹599",
-      originalPrice: "₹999",
-      mode: "Online",
-      discount: "40% OFF",
+      id: 102,
+      title: "JPSC Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Expert Faculty", "Current Affairs", "Answer Writing"],
+      fullTitle: "JPSC Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaBook className="co-course-icon" />,
     },
-    // Additional courses to demonstrate loading more
-    ...Array.from({ length: 20 }, (_, i) => ({
-      id: i + 4,
-      title: `Course ${i + 4}`,
-      subtitle: `Batch ${2025 + i}`,
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      fullTitle: `Full Course Title ${i + 4}`,
-      startDate: "01 Jan 2025",
-      endDate: "31 Dec 2025",
-      price: "₹999",
-      originalPrice: "₹1999",
-      mode: i % 2 ? "Online" : "Offline",
-      discount: "50% OFF",
-    })),
+    {
+      id: 103,
+      title: "BPSC Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["GS Classes", "Optional Subject", "Test Series"],
+      fullTitle: "BPSC Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaGraduationCap className="co-course-icon" />,
+    },
+    {
+      id: 104,
+      title: "BSSC CGL Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Quant Classes", "Reasoning", "General Awareness"],
+      fullTitle: "BSSC CGL Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaChalkboardTeacher className="co-course-icon" />,
+    },
+    {
+      id: 105,
+      title: "Banking PO Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Quantitative Aptitude", "Reasoning", "English"],
+      fullTitle: "Banking PO Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaUserTie className="co-course-icon" />,
+    },
+    {
+      id: 106,
+      title: "Banking Clerk Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Speed Maths", "Computer Awareness", "Mock Tests"],
+      fullTitle: "Banking Clerk Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaChalkboard className="co-course-icon" />,
+    },
+    {
+      id: 107,
+      title: "SSC CGL Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["General Intelligence", "Quantitative Aptitude", "English"],
+      fullTitle: "SSC CGL Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaCertificate className="co-course-icon" />,
+    },
+    {
+      id: 108,
+      title: "Railway NTPC Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Mathematics", "General Awareness", "Practice Tests"],
+      fullTitle: "Railway NTPC Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaTrain className="co-course-icon" />,
+    },
+    {
+      id: 109,
+      title: "Bihar Police Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["General Studies", "Reasoning", "Physical Test Prep"],
+      fullTitle: "Bihar Police Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaShieldAlt className="co-course-icon" />,
+    },
+    {
+      id: 110,
+      title: "Spoken English Offline",
+      subtitle: "Classroom Program 2025",
+      features: ["Grammar", "Conversation", "Personality Development"],
+      fullTitle: "Spoken English Classroom Program 2025",
+      startDate: "class start soon",
+      endDate: "",
+      mode: "Offline",
+      icon: <FaMicrophone className="co-course-icon" />,
+    },
   ];
+
+  const allCoursesData = [...offlineCourses, ...onlineCourses];
 
   const [visibleCount, setVisibleCount] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
   const [courses, setCourses] = useState(allCoursesData.slice(0, 6));
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const loadMoreCourses = () => {
     setIsLoading(true);
-
-    // Simulate API call delay
     setTimeout(() => {
-      const newCount = visibleCount + 6;
+      const newCount = visibleCount + 3;
       setVisibleCount(newCount);
       setCourses(allCoursesData.slice(0, newCount));
       setIsLoading(false);
     }, 1000);
   };
 
-  return (
-    <div className="courses-page">
-      {/* Header Section */}
-      <div
-        className="courses-header"
-        style={{
-          position: "relative",
-          height: "90vh",
-          width: "100%",
-          overflow: "hidden", // Add this to prevent image overflow
-        }}
-      >
-        <img
-          src={img}
-          alt="img"
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "cover", // Uncomment this - it's crucial
-            position: "absolute", // Uncomment this
-            top: 0,
-            left: 0,
-            zIndex: 0,
-          }}
-        />
+  const filteredCourses = allCoursesData.filter((course) => {
+    const matchesSearch =
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.subtitle.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      activeFilter === "all" ||
+      course.mode.toLowerCase() === activeFilter.toLowerCase();
+    return matchesSearch && matchesFilter;
+  });
 
-        {/* Rest of your code remains the same */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            paddingTop: "20px",
-            textAlign: "center",
-            color: "white",
-            textShadow: "1px 1px 3px rgba(0,0,0,0.8)",
-          }}
-        >
+  const displayedCourses = filteredCourses.slice(0, visibleCount);
+
+  return (
+    <div className="co-courses-page">
+      {/* Header Section */}
+      <div className="co-courses-header">
+        <img src={img} alt="Courses Banner" className="co-header-image" />
+
+        <div className="co-header-content">
           <h1>Explore Our Courses</h1>
           <p>
             Over 10 million learners trust us for Online and Offline Coaching
           </p>
+
+          <div className="co-search-bar">
+            <FaSearch className="co-search-icon" />
+            <input
+              type="text"
+              placeholder="Search courses..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div
-          className="filter-tabs"
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 1,
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          <button className="active">All Courses</button>
-          <button>Online Courses</button>
-          <button>Offline Courses</button>
-          <button>Upcoming Courses</button>
-          <button>See All</button>
+        <div className="co-filter-tabs">
+          <button
+            className={activeFilter === "all" ? "co-active" : ""}
+            onClick={() => setActiveFilter("all")}
+          >
+            <FaFilter /> All Courses
+          </button>
+          <button
+            className={activeFilter === "online" ? "co-active" : ""}
+            onClick={() => setActiveFilter("online")}
+          >
+            <FaLaptop /> Online Courses
+          </button>
+          <button
+            className={activeFilter === "offline" ? "co-active" : ""}
+            onClick={() => setActiveFilter("offline")}
+          >
+            <FaUniversity /> Offline Courses
+          </button>
         </div>
       </div>
-      <hr />
 
-      <div className="course-count">
-        <span>Total Courses: {allCoursesData.length}</span>
+      {/* Course Count */}
+      <div className="co-course-count">
+        <span>Total Courses: {filteredCourses.length}</span>
         <span>
-          Showing: {courses.length} of {allCoursesData.length} courses
+          Showing: {Math.min(displayedCourses.length, visibleCount)} of{" "}
+          {filteredCourses.length} courses
         </span>
       </div>
-      {/* Courses Grid */}
-      <div
-        className={` ${isLoading ? "loading" : ""}`}
-        style={{ padding: "20px" }}
-      >
-        <div className="courses-grid">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="course-card"
-              style={{
-                transition: "all 0.3s ease",
-                opacity: isLoading ? 0.8 : 1,
-                transform: isLoading ? "translateY(10px)" : "translateY(0)",
-              }}
-            >
-              <div className="card-top">
-                <h3>{course.title}</h3>
-                <p className="subtitle">{course.subtitle}</p>
 
-                <div className="features">
+      {/* Courses Grid */}
+      <div className={`co-courses-container ${isLoading ? "co-loading" : ""}`}>
+        <div className="co-courses-grid">
+          {displayedCourses.map((course) => (
+            <div key={course.id} className="co-course-card">
+              {course.comingSoon && (
+                <div className="co-coming-soon-banner">
+                  Online Classes Starting Soon!
+                </div>
+              )}
+              <div className="co-card-icon">{course.icon}</div>
+
+              <div className="co-card-top">
+                <h3>{course.title}</h3>
+                <p className="co-subtitle">{course.subtitle}</p>
+              </div>
+
+              <div className="co-card-middle">
+                <div className="co-features">
                   {course.features.map((feature, index) => (
-                    <span key={index} className="feature-badge">
-                      <span className="bullet">•</span> {feature}
-                    </span>
+                    <div key={index} className="co-feature-item">
+                      <FaArrowRight className="co-feature-icon" />
+                      <span>{feature}</span>
+                    </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="card-middle">
-                <p className="full-title">{course.fullTitle}</p>
-
-                <div className="timing">
-                  <span>
-                    <strong>Starts On:</strong> {course.startDate}
-                  </span>
-                  <span>
-                    <strong>Ends On:</strong> {course.endDate}
-                  </span>
-                </div>
-
-                <div className="pricing">
-                  <div className="price-container">
-                    <span className="current-price">{course.price}</span>
-                    <span className="original-price">
-                      {course.originalPrice}
+                <div className="co-timing">
+                  <div className="co-timing-item">
+                    <FaCalendarAlt className="co-timing-icon" />
+                    <span>
+                      <strong>Starts:</strong> {course.startDate}
                     </span>
-                    <span className="discount">{course.discount}</span>
                   </div>
-                  <span className="mode-badge">{course.mode}</span>
+                </div>
+
+                <div className="co-mode-badge">
+                  {course.mode === "Online" ? (
+                    <FaLaptop className="co-mode-icon" />
+                  ) : (
+                    <FaUniversity className="co-mode-icon" />
+                  )}
+                  <span>{course.mode}</span>
                 </div>
               </div>
 
-              <div className="card-bottom">
-                <button className="explore-btns">Explore</button>
-                <button className="buy-btn">Buy Now</button>
+              <div className="co-card-bottom">
+                <button
+                  className="co-explore-btn"
+                  onClick={() =>
+                    navigate("/register", {
+                      state: { scrollTo: "reg" },
+                    })
+                  }
+                >
+                  Register Now <FaArrowRight className="co-btn-icon" />
+                </button>
               </div>
             </div>
           ))}
@@ -219,20 +316,20 @@ const Courses = () => {
       </div>
 
       {/* Load More Button */}
-      {visibleCount < allCoursesData.length && (
-        <div className="load-more-container">
+      {visibleCount < filteredCourses.length && (
+        <div className="co-load-more-container">
           <button
             onClick={loadMoreCourses}
             disabled={isLoading}
-            className={`load-more-btn ${isLoading ? "loading" : ""}`}
+            className={`co-load-more-btn ${isLoading ? "co-loading" : ""}`}
           >
             {isLoading ? (
               <>
-                <span className="loader"></span>
+                <span className="co-loader"></span>
                 Loading...
               </>
             ) : (
-              "See More Courses"
+              "Load More Courses"
             )}
           </button>
         </div>

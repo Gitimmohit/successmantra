@@ -27,7 +27,7 @@ const SuccessStory = () => {
   const successStories = [
     {
       id: 1,
-      name: 'Priya Kumari',
+      name: 'Komal Kumari',
       rank: 9,
       photo: img3,
       score: '95%',
@@ -51,7 +51,7 @@ const SuccessStory = () => {
     },    
     {
       id: 3,
-      name: 'Rahul Kumar',
+      name: 'Rajiv Nandan',
       photo: img1,
       rank: 167,
       score: '92%',

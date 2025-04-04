@@ -6,7 +6,6 @@
   }
   
   .con-container {
-    max-width: 1000px;
     margin: 0 auto;
     background: white;
     border-radius: 15px;
@@ -249,6 +248,7 @@
     border-radius: 8px;
     font-size: 1rem;
     flex: 1;
+    width: 90%;
   }
   
   .con-textarea {

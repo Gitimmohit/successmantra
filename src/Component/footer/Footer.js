@@ -2,8 +2,14 @@ import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { RiSendPlaneFill } from "react-icons/ri";
 import "./Footer.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const goToHelp = () => {
+    navigate("/contact#faq"); 
+  };
   return (
     <footer className="universal-footer">
       {/* Wave Decoration */}
@@ -88,7 +94,7 @@ const Footer = () => {
       </div>
       
       {/* Floating Chat Button */}
-      <div className="chat-button">
+      <div className="chat-button" onClick={goToHelp}>
         <div className="pulse-effect"></div>
         <span>Need Help?</span>
       </div>

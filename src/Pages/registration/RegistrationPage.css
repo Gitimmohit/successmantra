@@ -11,8 +11,7 @@
 .reg-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('../../img/banner3.jpg') center/cover;
-  height: 60vh;
-  min-height: 400px;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -119,8 +119,9 @@
 
 .gr-card-image {
   position: relative;
-  height: 200px;
+  height: 250px; /* or any fixed/relative height */
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .gr-card-image img {

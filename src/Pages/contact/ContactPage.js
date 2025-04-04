@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle, FaChevronDown } from 'react-icons/fa';
 import { MdError } from 'react-icons/md';
 import './ContactPage.css';
+import { useLocation } from 'react-router-dom';
 
 const ContactPage = () => {
   // Form state management
@@ -62,6 +63,22 @@ const ContactPage = () => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        element.style.backgroundColor = "#f0f8ff";
+        setTimeout(() => {
+          element.style.backgroundColor = "transparent";
+        }, 2000);
+      }
+    }
+  }, [location]);
+
   // FAQ data
   const faqs = [
     {
@@ -83,57 +100,55 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="contact-page">
+    <div className="cn-contact-page">
       {/* Contact Hero Section */}
-      <section className="contact-hero">
-        <div className="hero-content">
+      <section className="cn-contact-hero">
+        <div className="cn-hero-content">
           <h1>Get in Touch</h1>
           <p>We're here to help you with any questions about our courses and programs</p>
         </div>
       </section>
 
       {/* Contact Main Section */}
-      <section className="contact-main">
-        <div className="contact-container">
+      <section className="cn-contact-main">
+        <div className="cn-contact-container">
           {/* Contact Info */}
-          <div className="contact-info">
-            <div className="info-card">
-              <div className="info-icon">
+          <div className="cn-contact-info">
+            <div className="cn-info-card">
+              <div className="cn-info-icon">
                 <FaMapMarkerAlt />
               </div>
-              <div className="info-content">
+              <div className="cn-info-content">
                 <h3>Our Location</h3>
-                <p>Jamshedpur Adityapur Shere-E-Punjab Mishra Building </p>
+                <p>Jamshedpur Adityapur Shere-E-Punjab Mishra Building</p>
               </div>
             </div>
 
-            <div className="info-card">
-              <div className="info-icon">
+            <div className="cn-info-card">
+              <div className="cn-info-icon">
                 <FaPhone />
               </div>
-              <div className="info-content">
+              <div className="cn-info-content">
                 <h3>Phone Number</h3>
-                <p>+91 98765 43210</p>
-                <p>+91 12345 67890</p>
+                <p>+91 8825114644</p>
               </div>
             </div>
 
-            <div className="info-card">
-              <div className="info-icon">
+            <div className="cn-info-card">
+              <div className="cn-info-icon">
                 <FaEnvelope />
               </div>
-              <div className="info-content">
+              <div className="cn-info-content">
                 <h3>Email Address</h3>
-                <p>info@yourcoaching.com</p>
-                <p>support@yourcoaching.com</p>
+                <p>succesmanta@gmail.com</p>
               </div>
             </div>
 
-            <div className="info-card">
-              <div className="info-icon">
+            <div className="cn-info-card">
+              <div className="cn-info-icon">
                 <FaClock />
               </div>
-              <div className="info-content">
+              <div className="cn-info-content">
                 <h3>Working Hours</h3>
                 <p>Monday - Friday: 9am - 6pm</p>
                 <p>Saturday: 9am - 2pm</p>
@@ -142,24 +157,24 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="contact-form">
+          <div className="cn-contact-form" id="faq">
             <h2>Send Us a Message</h2>
             <p>Have questions about our courses? Fill out the form below and we'll get back to you within 24 hours.</p>
             
             {status.success && (
-              <div className="form-alert success">
+              <div className="cn-form-alert cn-success">
                 <FaCheckCircle /> Your message has been sent successfully!
               </div>
             )}
             
             {status.error && (
-              <div className="form-alert error">
+              <div className="cn-form-alert cn-error">
                 <MdError /> There was an error sending your message. Please try again.
               </div>
             )}
 
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="cn-form-group">
                 <input
                   type="text"
                   name="name"
@@ -170,8 +185,7 @@ const ContactPage = () => {
                 />
               </div>
               
-              <div className="form-row">
-                <div className="form-group">
+                <div className="cn-form-group">
                   <input
                     type="email"
                     name="email"
@@ -182,7 +196,7 @@ const ContactPage = () => {
                   />
                 </div>
                 
-                <div className="form-group">
+                <div className="cn-form-group">
                   <input
                     type="tel"
                     name="phone"
@@ -192,9 +206,8 @@ const ContactPage = () => {
                     required
                   />
                 </div>
-              </div>
               
-              <div className="form-group">
+              <div className="cn-form-group">
                 <select
                   name="course"
                   value={formData.course}
@@ -209,7 +222,7 @@ const ContactPage = () => {
                 </select>
               </div>
               
-              <div className="form-group">
+              <div className="cn-form-group">
                 <textarea
                   name="message"
                   value={formData.message}
@@ -222,7 +235,7 @@ const ContactPage = () => {
               
               <button 
                 type="submit" 
-                className="submit-btn"
+                className="cn-submit-btn"
                 disabled={status.submitting}
               >
                 {status.submitting ? 'Sending...' : (
@@ -237,8 +250,8 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="map-section">
-        <div className="map-container">
+      <section className="cn-map-section">
+        <div className="cn-map-container">
           <iframe
             title="Our Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.041923179763!2d85.32399731428647!3d23.34349750994799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104aa5e7c39%3A0x179a3d0f8a0e9b6c!2sRanchi%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1621234567890!5m2!1sen!2sin"
@@ -249,26 +262,26 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
+      <section className="cn-faq-section">
         <h2>Frequently Asked Questions</h2>
-        <div className="faq-container">
+        <div className="cn-faq-container">
           {faqs.map((faq, index) => (
             <div 
-              className={`faq-item ${activeFaq === index ? 'active' : ''}`} 
+              className={`cn-faq-item ${activeFaq === index ? 'cn-active' : ''}`} 
               key={index}
             >
               <button 
-                className="faq-question"
+                className="cn-faq-question"
                 onClick={() => toggleFaq(index)}
                 aria-expanded={activeFaq === index}
-                aria-controls={`faq-answer-${index}`}
+                aria-controls={`cn-faq-answer-${index}`}
               >
                 {faq.question}
-                <FaChevronDown className={`faq-icon ${activeFaq === index ? 'active' : ''}`} />
+                <FaChevronDown className={`cn-faq-icon ${activeFaq === index ? 'cn-active' : ''}`} />
               </button>
               <div 
-                id={`faq-answer-${index}`}
-                className="faq-answer"
+                id={`cn-faq-answer-${index}`}
+                className="cn-faq-answer"
                 role="region"
               >
                 <p>{faq.answer}</p>

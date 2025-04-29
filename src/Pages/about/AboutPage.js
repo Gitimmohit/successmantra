@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaChalkboardTeacher, FaAward, FaUserGraduate, FaLightbulb } from 'react-icons/fa';
 import { GiAchievement } from 'react-icons/gi';
 import teamImg from '../../img/banner1.jpg';
 import './AboutPage.css';
+import axios from 'axios';
+import ServerAddress from '../../constant/ServerAddress';
 
 const AboutPage = () => {
+
+const [aboutdata, setaboutdata] = useState()
+
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        ServerAddress +
+          `blog/get-about/?search=${""}&p=${''}&records=${10}`,       
+      );    
+      if (response.data) {
+        setaboutdata(response.data.results[0])
+      }
+    } catch (err) {
+      console.warn(`Error Occur in Get User, ${err}`);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+
   return (
     <div className="about-page">
       {/* Hero Section */}
@@ -25,17 +50,17 @@ const AboutPage = () => {
             <div className="mission-stats1">
               <div className="stat-card1">
                 <FaUserGraduate className="stat-icon1" />
-                <h3>10,000+</h3>
+                <h3>{aboutdata?.total_student}+</h3>
                 <p>Students Trained</p>
               </div>
               <div className="stat-card1">
                 <FaAward className="stat-icon1" />
-                <h3>250+</h3>
+                <h3>{aboutdata?.total_ranker}+</h3>
                 <p>Top Rankers</p>
               </div>
               <div className="stat-card1">
                 <FaLightbulb className="stat-icon1" />
-                <h3>15+</h3>
+                <h3>{aboutdata?.year_of_exp}+</h3>
                 <p>Years Experience</p>
               </div>
             </div>
